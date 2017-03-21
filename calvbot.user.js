@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.1
+// @version      0.4.2
 // @grant        none
 // ==/UserScript==
 (function () {
