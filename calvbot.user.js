@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.3
+// @version      0.4
 // @grant        none
 // ==/UserScript==
 (function () {
@@ -22,10 +22,13 @@
   var answerv;
   function CalvBotInterval() {
     $('.CalvBot').removeClass('CalvBot');
-    $('#chat .user-container:last-child.user-64521').addClass('CalvBot');
+    $('.CalvBotCommand').removeClass('CalvBotCommand');
+    $('#chat .user-container:last-child.user-64521').addClass('CalvBot').addClass('CalvBotCommand');
     $('#chat .user-container:last-child.user-120914').addClass('CalvBot');
     var smokey = $('.CalvBot .messages .message:last-child .content').text();
     var smokeylc = smokey.toLowerCase();
+    var cbcommand = $('.CalvBotCommand .messages .message:last-child .content').text();
+    var cbcommandlc = cbcommand.toLowerCase();
     function contains(target, pattern) {
       var value = 0;
       pattern.forEach(function (word) {
@@ -39,6 +42,12 @@
       var answerw = answerv * 50;
       var answero = answertp + answerw;
       document.getElementById('input').value = answero;
+      $('#sayit-button').click();
+    } else {
+      //false statement..do nothing
+    }
+    if (cbcommandlc === '@calvbot alive?') {
+      document.getElementById('input').value = '@CalvT as much as you are :)';
       $('#sayit-button').click();
     } else {
       //false statement..do nothing
