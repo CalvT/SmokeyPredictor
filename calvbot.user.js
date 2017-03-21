@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.4
+// @version      0.4.5
 // @grant        none
 // ==/UserScript==
 (function () {
@@ -73,7 +73,7 @@
     if (cbcommandlc === restart) {
       document.getElementById('input').value = '@CalvT ok, give me a minute';
       $('#sayit-button').click();
-      //window.location.href=window.location.href;
+      window.setTimeout(window.location.href=window.location.href, 1000);
     } else {
       //false statement..do nothing
     }
