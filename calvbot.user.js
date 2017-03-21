@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.2
+// @version      0.4.3
 // @grant        none
 // ==/UserScript==
 (function () {
   'use strict';
+  document.getElementById('input').value = '@CalvT hey \o';
+  $('#sayit-button').click();
   var keywords = [
     'blacklisted website',
     'care',
@@ -68,7 +70,7 @@
     if (cbcommandlc === restart) {
       document.getElementById('input').value = '@CalvT ok, give me a minute';
       $('#sayit-button').click();
-      location.reload(true);
+      window.location.href=window.location.href;
     } else {
       //false statement..do nothing
     }
