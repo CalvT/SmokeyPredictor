@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.7
+// @version      0.4.8
 // @grant        none
 // ==/UserScript==
 (function () {
@@ -30,7 +30,7 @@
   var alive = '@calvbot alive?';
   var location = '@calvbot location?';
   var restart = '@calvbot restart please';
-  var reload = window.location.href=window.location.href;
+  var reload = function() {window.location.href=window.location.href};
   function CalvBotInterval() {
     $('.CalvBot').removeClass('CalvBot');
     $('.CalvBotCommand').removeClass('CalvBotCommand');
