@@ -6,8 +6,6 @@
 // ==/UserScript==
 (function () {
   'use strict';
-  document.getElementById('input').value = '@CalvT hey \o';
-  $('#sayit-button').click();
   var keywords = [
     'blacklisted website',
     'care',
