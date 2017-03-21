@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.5
+// @version      0.4.6
 // @grant        none
 // ==/UserScript==
 (function () {
   'use strict';
   window.setTimeout(slowAlert, 3000);
   function slowAlert() {
-    document.getElementById('input').value = '@CalvT hey \o';
+    document.getElementById('input').value = '@CalvT hey o/';
     $('#sayit-button').click();
   }
   var keywords = [
@@ -73,7 +73,7 @@
     if (cbcommandlc === restart) {
       document.getElementById('input').value = '@CalvT ok, give me a minute';
       $('#sayit-button').click();
-      window.setTimeout(window.location.href=window.location.href, 1000);
+      window.setTimeout(window.location.href=window.location.href, 3000);
     } else {
       //false statement..do nothing
     }
