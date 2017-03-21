@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.4.6
+// @version      0.4.7
 // @grant        none
 // ==/UserScript==
 (function () {
   'use strict';
-  window.setTimeout(slowAlert, 3000);
-  function slowAlert() {
+  window.setTimeout(slowStart, 3000);
+  function slowStart() {
     document.getElementById('input').value = '@CalvT hey o/';
     $('#sayit-button').click();
   }
@@ -30,6 +30,7 @@
   var alive = '@calvbot alive?';
   var location = '@calvbot location?';
   var restart = '@calvbot restart please';
+  var reload = window.location.href=window.location.href;
   function CalvBotInterval() {
     $('.CalvBot').removeClass('CalvBot');
     $('.CalvBotCommand').removeClass('CalvBotCommand');
@@ -73,7 +74,7 @@
     if (cbcommandlc === restart) {
       document.getElementById('input').value = '@CalvT ok, give me a minute';
       $('#sayit-button').click();
-      window.setTimeout(window.location.href=window.location.href, 3000);
+      window.setTimeout(reload, 3000);
     } else {
       //false statement..do nothing
     }
