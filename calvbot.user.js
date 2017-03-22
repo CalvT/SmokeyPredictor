@@ -1,14 +1,16 @@
 // ==UserScript==
-// @name        Smokey Predictor
-// @namespace   smokeypredictor
-// @version      0.5.2
-// @grant        none
+// @name        Smokey Predictor Sandboxed
+// @namespace   smokeypredictorsandboxed
+// @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
+// @version     0.6
+// @downloadURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
+// @grant       none
 // ==/UserScript==
 (function () {
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.5.2';
+  var cbversion = '0.6';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -46,7 +48,7 @@
     $('.CalvBot').removeClass('CalvBot');
     $('.CalvBotCommand').removeClass('CalvBotCommand');
     $('#chat .user-container:last-child.user-64521').addClass('CalvBot').addClass('CalvBotCommand');
-    $('#chat .user-container:last-child.user-120914').addClass('CalvBot');
+    // $('#chat .user-container:last-child.user-120914').addClass('CalvBot');
     var smokey = $('.CalvBot .messages .message:last-child .content').text();
     var smokeylc = smokey.toLowerCase();
     var cbcommand = $('.CalvBotCommand .messages .message:last-child .content').text();
