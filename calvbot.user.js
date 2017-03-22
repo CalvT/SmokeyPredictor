@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.5
+// @version      0.5.1
 // @grant        none
 // ==/UserScript==
 (function () {
   'use strict';
+
+  // Version here to reduce possibility of not updating both
+  var cbversion = '0.5.1';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -20,7 +23,9 @@
     'askubuntu.com',
     'drupal.se',
     'graphicdesign.se',
+    'blacklisted user',
     'blacklisted website',
+    'manually reported',
     'care',
     'cream',
     'enhancement',
@@ -70,11 +75,13 @@
 
     // Command Functions
     var alive = '@calvbot alive?';
-    var alivereply = '@CalvT as much as you are :)',
+    var alivereply = '@CalvT as much as you are :)';
     var location = '@calvbot location?';
-    var locationreply = '@CalvT your AWS EC2 instance',
+    var locationreply = '@CalvT your AWS EC2 instance';
     var restart = '@calvbot restart please';
-    var restartreply ='@CalvT ok, give me a minute',
+    var restartreply ='@CalvT ok, give me a minute';
+    var versioncommand = '@calvbot version';
+    var versionreply = '@CalvT I\'m running on version ' + cbversion;
     var reload = function() {window.location.href=window.location.href};
 
     if (cbcommandlc === alive) {
@@ -93,6 +100,14 @@
 
     if (cbcommandlc === restart) {
       document.getElementById('input').value = restartreply;
+      $('#sayit-button').click();
+      window.setTimeout(reload, 3000);
+    } else {
+      //false statement..do nothing
+    }
+
+    if (cbcommandlc === versioncommand) {
+      document.getElementById('input').value = versionreply;
       $('#sayit-button').click();
       window.setTimeout(reload, 3000);
     } else {
