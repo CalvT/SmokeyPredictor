@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        Smokey Predictor
 // @namespace   smokeypredictor
-// @version      0.5.1
+// @version      0.5.2
 // @grant        none
 // ==/UserScript==
 (function () {
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.5.1';
+  var cbversion = '0.5.2';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -109,7 +109,6 @@
     if (cbcommandlc === versioncommand) {
       document.getElementById('input').value = versionreply;
       $('#sayit-button').click();
-      window.setTimeout(reload, 3000);
     } else {
       //false statement..do nothing
     }
