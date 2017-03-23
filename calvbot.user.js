@@ -4,13 +4,14 @@
 // @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
 // @version     0.6
 // @downloadURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
+// @updateURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @grant       none
 // ==/UserScript==
 (function () {
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.6';
+  var cbversion = '0.6.1';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -21,15 +22,19 @@
 
   // Trigger Keywords
   var keywords = [
+    // spam sites
     'apple.se',
     'askubuntu.com',
     'drupal.se',
     'graphicdesign.se',
+    // smokey keyworks
     'blacklisted user',
     'blacklisted website',
     'manually reported',
+    // spam words
     'care',
     'cream',
+    'endovex',
     'enhancement',
     'enlargement',
     'facial',
@@ -39,8 +44,15 @@
     'miracle',
     'muscle',
     'penis',
+    'serum',
     'skin',
-    'supplement'
+    'supplement',
+    'wrinkles',
+    // spam websites
+    'fornatgaex\.com',
+    'healthpluscogni\.com',
+    'skincaresfreetrial\.com',
+    'wellnessfeeds\.com'
   ];
 
   // Reading Chat Function
