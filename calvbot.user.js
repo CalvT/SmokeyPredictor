@@ -2,7 +2,7 @@
 // @name        Smokey Predictor Sandboxed
 // @namespace   smokeypredictorsandboxed
 // @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
-// @version     0.6
+// @version     0.6.1
 // @downloadURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @updateURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @grant       none
