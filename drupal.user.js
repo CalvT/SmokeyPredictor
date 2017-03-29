@@ -1,7 +1,9 @@
 // ==UserScript==
 // @name        Drupal Predictor Sandboxed
 // @namespace   calvtdrupalpredictorsandboxed
-// @version     0.1.2
+// @version     0.2
+// @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
+// @include     http://chat.stackexchange.com/rooms/11540/charcoal-hqx
 // @downloadURL 
 // @updateURL 
 // @grant       none
@@ -9,40 +11,40 @@
 (function () {
   'use strict';
 
-  // Version here to reduce possibility of not updating both
-  var cbversion = '0.1.2';
+  // Version
+  var cbversion = 0.2;
 
-  // Startup Function
+  // Startup function
   window.setTimeout(slowStart, 3000);
   function slowStart() {
-    console.log('@CalvT hey o/');
+      console.log('@CalvT Hey o/')
   }
 
-  // Reading Chat Function
-  function CalvBotInterval() {
-    $('.CalvBot').removeClass('CalvBot');
-    $('.CalvBotCommand').removeClass('CalvBotCommand');
-    $('#chat .user-container:last-child.user-64521').addClass('CalvBot').addClass('CalvBotCommand');
-    $('#chat .user-container:last-child.user-120914').addClass('CalvBot');
-    var smokey = $('.CalvBot .messages .message:last-child .content').text();
-    var smokeylc = smokey.toLowerCase();
-    var postid = $('.CalvBot .messages .message:last-child .content a:nth-child(3)').attr('href').split('questions/').pop();
-    var cbcommand = $('.CalvBotCommand .messages .message:last-child .content').text();
-    var cbcommandlc = cbcommand.toLowerCase();
-    var lastpostid;
+  // Chat Reading Function
+  function CalvDrupalBot () {
+      $('.DrupalBot').removeClass('DrupalBot');
+      $('#chat .user-container:last-child.user-64521').addClass('DrupalBot');
+      $('#chat .user-container:last-child.user-120914').addClass('DrupalBot');
+      var smokey = $('.DrupalBot .messages .message:last-child .content').text();
+      var smokeylc = smokey.toLowerCase();
+      var postid = $('.DrupalBot .messages .message:last-child .content a:nth-child(3)').attr('href').split('questions/').pop();
+      var lastpostid;
 
-    //Select Drupal Messages Function
-    var site = 'drupal.se';
-    
-    if (postid == lastpostid) {
-        //do nothing
-    } else {
-        if (smokeylc.includes(site)) {
-            console.log(postid);
-        } else {
-            // do nothing
-        }
-    }
+      // Targetted Site
+      var site = 'drupal.se';
 
-    var refreshId = setInterval(CalvBotInterval, 2000);
+      if (postid == lastpostid) {
+          // Do nothing
+      } else {
+          if (smokeylc.includes(site)) {
+              console.log(postid);
+              var lastpostid = postid;
+          } else {
+              // Do nothing
+          }
+      }
+  }
+
+  var refreshID = setInterval(CalvDrupalBot, 2000);
+
 }) ();
