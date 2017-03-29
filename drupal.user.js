@@ -2,7 +2,8 @@
 // @name        Drupal Predictor Sandboxed
 // @namespace   calvtdrupalpredictorsandboxed
 // @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
-// @version     0.1
+// @include     http://chat.stackexchange.com/rooms/11540/charcoal-hqx
+// @version     0.1.1
 // @downloadURL 
 // @updateURL 
 // @grant       none
@@ -11,7 +12,7 @@
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.1';
+  var cbversion = '0.1.1';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
