@@ -2,7 +2,7 @@
 // @name        Smokey Predictor Sandboxed
 // @namespace   smokeypredictorsandboxed
 // @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
-// @version     0.6.2
+// @version     0.7
 // @downloadURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @updateURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @grant       none
@@ -11,7 +11,7 @@
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.6.2';
+  var cbversion = '0.7';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -56,10 +56,7 @@
   ];
 
   // Fixed Commands
-  var alive = '@calvbot alive?';
-  var alivereply = '@CalvT as much as you are :)';
-  var location = '@calvbot location?';
-  var locationreply = '@CalvT your AWS EC2 instance';
+  var cbcommands = '[{"command":"@calvbot alive?","reply":"@CalvT as much as you are :)"},{"command":"@calvbot location?","reply":"@CalvT your AWS EC2 instance"}]';
   var restart = '@calvbot restart please';
   var restartreply ='@CalvT ok, give me a minute';
   var versioncommand = '@calvbot version';
@@ -101,19 +98,16 @@
     var versionreply = '@CalvT I\'m running on version ' + cbversion;
     var reload = function() {window.location.href=window.location.href};
 
-    if (cbcommandlc === alive) {
-      document.getElementById('input').value = alivereply;
-      $('#sayit-button').click();
-    } else {
-      //false statement..do nothing
-    }
-
-    if (cbcommandlc === location) {
-      document.getElementById('input').value = locationreply;
-      $('#sayit-button').click();
-    } else {
-      //false statement..do nothing
-    }
+    var cbcommandsp = $.parseJSON(cbcommands);
+    $.each(cbcommandsp, function() {
+      if (cbcommandlc === this['command']) {
+        document.getElementById('input').value = this['reply'];
+        $('#sayit-button').click();
+        return;
+      } else {
+        //false statement..do nothing
+      }
+    });
 
     if (cbcommandlc === restart) {
       document.getElementById('input').value = restartreply;
