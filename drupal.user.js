@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Drupal Predictor Sandboxed
 // @namespace   calvtdrupalpredictorsandboxed
-// @version     0.2.1
+// @version     0.3
 // @match        http://*/*
 // @downloadURL 
 // @updateURL 
@@ -11,7 +11,7 @@
   'use strict';
 
   // Version
-  var cbversion = '0.2.1';
+  var cbversion = '0.3';
 
   // Startup function
   window.setTimeout(slowStart, 3000);
