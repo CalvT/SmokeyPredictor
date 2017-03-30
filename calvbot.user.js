@@ -91,8 +91,7 @@
     if (contains(smokeylc, keywords)) {
       console.log(answervalue + smokey);
       var answerweight = answervalue * 50;
-      var answero = answertp + answerweight;
-      document.getElementById('input').value = answero;
+      document.getElementById('input').value = answertp + answerweight;
       $('#sayit-button').click();
     } else {
       //false statement..do nothing
