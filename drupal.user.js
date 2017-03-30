@@ -26,18 +26,19 @@
       $('#chat .user-container:last-child.user-120914').addClass('DrupalBot');
       var smokey = $('.DrupalBot .messages .message:last-child .content').text();
       var smokeylc = smokey.toLowerCase();
-      var postid = $('.DrupalBot .messages .message:last-child .content a:nth-child(3)').attr('href').split('questions/').pop();
-      var lastpostid;
+      var posttext = $('.DrupalBot .messages .message:last-child .content a:nth-child(3)').attr('href');
+      var lastposttext;
 
       // Targetted Site
       var site = 'drupal.se';
 
-      if (postid === lastpostid) {
+      if (posttext === lastposttext) {
           // Do nothing
       } else {
           if (smokeylc.includes(site)) {
+              var postid = posttext.split('questions/').pop();
               console.log(postid);
-              lastpostid = postid;
+              lastposttext = posttext;
           } else {
               // Do nothing
           }
