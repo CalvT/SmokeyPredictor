@@ -11,7 +11,7 @@
   'use strict';
 
   // Version
-  var cbversion = 0.2.1;
+  var cbversion = '0.2.1';
 
   // Startup function
   window.setTimeout(slowStart, 3000);
