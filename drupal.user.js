@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name        Drupal Predictor Sandboxed
 // @namespace   calvtdrupalpredictorsandboxed
-// @version     0.2
-// @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
-// @include     http://chat.stackexchange.com/rooms/11540/charcoal-hqx
+// @version     0.2.1
+// @match        http://*/*
 // @downloadURL 
 // @updateURL 
 // @grant       none
@@ -12,7 +11,7 @@
   'use strict';
 
   // Version
-  var cbversion = 0.2;
+  var cbversion = 0.2.1;
 
   // Startup function
   window.setTimeout(slowStart, 3000);
@@ -33,12 +32,12 @@
       // Targetted Site
       var site = 'drupal.se';
 
-      if (postid == lastpostid) {
+      if (postid === lastpostid) {
           // Do nothing
       } else {
           if (smokeylc.includes(site)) {
               console.log(postid);
-              var lastpostid = postid;
+              lastpostid = postid;
           } else {
               // Do nothing
           }
