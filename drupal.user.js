@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Drupal Predictor Sandboxed
 // @namespace   calvtdrupalpredictorsandboxed
-// @version     0.3.1
+// @version     0.3.2
 // @match        http://*/*
 // @downloadURL 
 // @updateURL 
@@ -11,7 +11,7 @@
   'use strict';
 
   // Version
-  var cbversion = '0.3.1';
+  var cbversion = '0.3.2';
 
   // Startup function
   window.setTimeout(slowStart, 3000);
@@ -37,9 +37,14 @@
           // Do nothing
       } else {
           if (smokeylc.includes(site)) {
-              var postid = posttext.split('questions/').pop();
-              console.log(postid);
               lastposttext = posttext;
+              if (posttext === posttext) {
+                  var postid = posttext.split('questions/').pop();
+                  console.log(postid);
+                  // TODO get spam id, then post spam flag
+              } else {
+                  // Do nothing
+              }
           } else {
               // Do nothing
           }

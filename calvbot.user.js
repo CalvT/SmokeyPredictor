@@ -2,7 +2,7 @@
 // @name        Smokey Predictor Sandboxed
 // @namespace   smokeypredictorsandboxed
 // @include     http://chat.stackexchange.com/rooms/55422/calvt-test-sandbox
-// @version     0.6.1
+// @version     0.6.2
 // @downloadURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @updateURL https://github.com/CalvT/SmokeyPredictor/raw/master/calvbot.user.js
 // @grant       none
@@ -11,7 +11,7 @@
   'use strict';
 
   // Version here to reduce possibility of not updating both
-  var cbversion = '0.6.1';
+  var cbversion = '0.6.2';
 
   // Startup Function
   window.setTimeout(slowStart, 3000);
@@ -55,6 +55,16 @@
     'wellnessfeeds\.com'
   ];
 
+  // Fixed Commands
+  var alive = '@calvbot alive?';
+  var alivereply = '@CalvT as much as you are :)';
+  var location = '@calvbot location?';
+  var locationreply = '@CalvT your AWS EC2 instance';
+  var restart = '@calvbot restart please';
+  var restartreply ='@CalvT ok, give me a minute';
+  var versioncommand = '@calvbot version';
+  var answertp = '@CalvT I\'m thinking tp? - Weight: ';
+
   // Reading Chat Function
   function CalvBotInterval() {
     $('.CalvBot').removeClass('CalvBot');
@@ -67,20 +77,21 @@
     var cbcommandlc = cbcommand.toLowerCase();
 
     // Answer Smokey Function
-    var answertp = '@CalvT I\'m thinking tp? - Weight: ';
-    var answerv;
+    var answervalue;
+    var answerreason;
     function contains(target, pattern) {
       var value = 0;
       pattern.forEach(function (word) {
         value = value + target.includes(word);
+        console.log(pattern);
       });
-      answerv = value;
+      answervalue = value;
       return (value >= 3);
     }
     if (contains(smokeylc, keywords)) {
-      console.log(answerv + smokey);
-      var answerw = answerv * 50;
-      var answero = answertp + answerw;
+      console.log(answervalue + smokey);
+      var answerweight = answervalue * 50;
+      var answero = answertp + answerweight;
       document.getElementById('input').value = answero;
       $('#sayit-button').click();
     } else {
@@ -88,13 +99,6 @@
     }
 
     // Command Functions
-    var alive = '@calvbot alive?';
-    var alivereply = '@CalvT as much as you are :)';
-    var location = '@calvbot location?';
-    var locationreply = '@CalvT your AWS EC2 instance';
-    var restart = '@calvbot restart please';
-    var restartreply ='@CalvT ok, give me a minute';
-    var versioncommand = '@calvbot version';
     var versionreply = '@CalvT I\'m running on version ' + cbversion;
     var reload = function() {window.location.href=window.location.href};
 
