@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Charlie Sandboxed
 // @namespace   charliesandboxed
-// @version     0.2
+// @version     0.2.1
 // @match       *://chat.stackexchange.com/*
 // @downloadURL 
 // @updateURL 
@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 // Version
-var cbversion = '0.2';
+var cbversion = '0.2.1';
 
 // Startup
 window.setTimeout(cbstartup, 3000);
@@ -27,8 +27,12 @@ function CharlieBot() {
     var smokey = $('.Charlie .messages .message:last-child .content').text();
     var smokeylc = smokey.toLowerCase();
     if (smokeylc) {
-        console.log(smokeylc);
-        lastpost = smokeylc;
+        if (smokeylc !== lastpost) {
+            console.log(smokeylc);
+            lastpost = smokeylc;
+        } else {
+            // do nothing
+        }
     } else {
         // do nothing
     }
