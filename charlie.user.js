@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Charlie Sandboxed
 // @namespace   charliesandboxed
-// @version     0.1.1
+// @version     0.2
 // @match       *://chat.stackexchange.com/*
 // @downloadURL 
 // @updateURL 
@@ -9,12 +9,13 @@
 // ==/UserScript==
 
 // Version
-var cbversion = '0.1.1';
+var cbversion = '0.2';
 
 // Startup
 window.setTimeout(cbstartup, 3000);
 function cbstartup() {
-    console.log('@CalvT Hey o/');
+    document.getElementById('input').value = '@CalvT hey o/';
+    $('#sayit-button').click();
 }
 
 // 'Out of Function'
@@ -22,8 +23,8 @@ var lastpost;
 
 function CharlieBot() {
     $('.Charlie').removeClass('Charlie');
-    $('#chat .user-container:last-child.user-120914').addClass('Charlie');
-    var smokey = $('.DrupalBot .messages .message:last-child .content').text();
+    $('#chat .user-container:last-child').addClass('Charlie');
+    var smokey = $('.Charlie .messages .message:last-child .content').text();
     var smokeylc = smokey.toLowerCase();
     if (smokeylc) {
         console.log(smokeylc);
@@ -31,7 +32,7 @@ function CharlieBot() {
     } else {
         // do nothing
     }
-    
+
 }
 
 var refreshID = setInterval(CharlieBot, 2000);
