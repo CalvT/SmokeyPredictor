@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Charlie Sandboxed
 // @namespace   charliesandboxed
-// @version     0.2.3
+// @version     0.2.4
 // @match       *://chat.stackexchange.com/*
 // @downloadURL 
 // @updateURL 
@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 // Version
-var cbversion = '0.2.3';
+var cbversion = '0.2.4';
 
 // Startup
 window.setTimeout(cbstartup, 3000);
@@ -22,7 +22,7 @@ function cbstartup() {
 var lastpost;
 var commandusers = '.user-64521';
 var smokeyusers = '.user-120914'; //, .user-272039
-var CharlieCall = ['@Charlie', '@CharlieB'];
+var CharlieCall = ['@charlie', '@charlieb'];
 
 function CharlieBot() {
     $('.Charlie').removeClass('Charlie');
@@ -32,7 +32,7 @@ function CharlieBot() {
     } else {
         var charlietext = $('.Charlie .messages .message:last-child .content').text();
         var charlietextlc = charlietext.toLowerCase();
-        if (CharlieCall.some(function(v) { return CharlieCall.indexOf(v) >= 0; })) {
+        if (CharlieCall.some(function(v) { return charlietextlc.indexOf(v) >= 0; })) {
             if ($('.Charlie').is(commandusers)) {
                 Commands();
             } else {
