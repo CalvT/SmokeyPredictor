@@ -21,15 +21,24 @@ function cbstartup() {
 // 'Out of Function'
 var lastpost;
 var commandusers = '.user-64521';
-var smokeyusers = '.user-120914, .user-272039';
+var smokeyusers = '.user-120914'; //, .user-272039
+var CharlieCall = ['@Charlie', '@CharlieB'];
 
 function CharlieBot() {
     $('.Charlie').removeClass('Charlie');
     $('#chat .user-container:last-child').addClass('Charlie');
-    if ($('.Charlie').is(commandusers)) {
-        Commands();
-    } else if ($('.Charlie').is(smokeyusers)) {
+    if ($('.Charlie').is(smokeyusers)) {
         SmokeyReply();
+    } else {
+        var charlietext = $('.Charlie .messages .message:last-child .content').text();
+        var charlietextlc = charlietext.toLowerCase();
+        if (CharlieCall.some(function(v) { return CharlieCall.indexOf(v) >= 0; })) {
+            if ($('.Charlie').is(commandusers)) {
+                Commands();
+            } else {
+                NoPrivsCommand();
+            }
+        }
     }
 
 }
@@ -49,6 +58,11 @@ function Commands() {
     var chatcommand = $('.Charlie .messages .message:last-child .content').text();
     var chatcommandlc = chatcommand.toLowerCase();
     console.log("Command: " + chatcommandlc);
+}
+
+function NoPrivsCommand() {
+    document.getElementById('input').value = 'Sorry, I\'m not allow to talk to you. CalvT won\'t let me';
+    $('#sayit-button').click();
 }
 
 var refreshID = setInterval(CharlieBot, 2000);
