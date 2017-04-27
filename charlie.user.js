@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Charlie Sandboxed
 // @namespace   charliesandboxed
-// @version     0.2.2
+// @version     0.2.3
 // @match       *://chat.stackexchange.com/*
 // @downloadURL 
 // @updateURL 
@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 // Version
-var cbversion = '0.2.2';
+var cbversion = '0.2.3';
 
 // Startup
 window.setTimeout(cbstartup, 3000);
